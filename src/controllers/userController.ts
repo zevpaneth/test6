@@ -3,8 +3,7 @@ import asyncHandler from "express-async-handler";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import { findUser } from "../services/userService.js";
-
+import User from "../models/user.js";
 
 dotenv.config();
 
@@ -16,8 +15,7 @@ export const loginUser = asyncHandler(async (req: express.Request, res: express.
     }
 
 
-    const user = await findUser(email);
-    console.log(user)
+    const user = await User.findOne({email});
     if (user && (await bcrypt.compare(password, user.password))) {
         const accessToken = jwt.sign(
             {
