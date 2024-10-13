@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { AuthenticatedRequest} from "../models/user.js";
 import Teacher from "../models/teacher.js";
-import { createClass } from "../services/classCreator.js";
+import { createClass } from "../services/classService.js";
 import {Schema} from "mongoose";
 
 
@@ -41,10 +41,10 @@ export const registerTeacher = asyncHandler(async (req: express.Request, res: ex
         })
     } else {
         res.status(400);
-        throw new Error("User data is not valid");
+        throw new Error("Teacher data is not valid");
     }
     res.json({
-        message: "User registered"
+        message: "Teacher registered"
     })
 })
 
