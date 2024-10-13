@@ -37,8 +37,7 @@ export const registerTeacher = asyncHandler(async (req: express.Request, res: ex
 
     if (teacher && newClass) {
         res.status(201).json({
-            class: newClass,
-            teacher: teacher,
+            classId: newClass.id
         })
     } else {
         res.status(400);
