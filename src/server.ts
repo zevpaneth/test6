@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use("/api/teachers", teacherRoute);
 app.use("/api/students", studentRoute);
-app.use("/api/auth/login", loginRoute);
+app.use("/api/auth", loginRoute);
 
 
 app.use(errorHandler)

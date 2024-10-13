@@ -11,4 +11,4 @@ const teacherSchema: Schema = new Schema({
     password: { type: String, required: [true, 'password field is required'] },
 })
 
-export default mongoose.model('Teacher', teacherSchema);
+export default mongoose.model<ITeacher>('Teacher', teacherSchema);

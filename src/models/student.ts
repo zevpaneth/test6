@@ -1,5 +1,5 @@
-import mongoose, { Schema, Document } from 'mongoose';
-import {IUser} from "./user.js";
+import mongoose, { Schema } from 'mongoose';
+import { IUser } from "./user.js";
 
 interface IStudent extends IUser {
     classId: mongoose.Types.ObjectId;
@@ -12,4 +12,4 @@ const studentSchema: Schema = new Schema({
     classId: { type: Schema.Types.ObjectId, ref: 'Class', required: [true, 'the classId field is required'] },
 })
 
-export default mongoose.model('Student', studentSchema);
+export default mongoose.model<IStudent>('Student', studentSchema);
