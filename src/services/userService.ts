@@ -1,14 +1,9 @@
-import Teacher from "../models/teacher.js";
-import Student from "../models/student.js";
+import User from "../models/user.js";
 
 export const findUser = async (email: string) => {
-    let user;
-    user = await Teacher.findOne({ email });
+    const user = User.findOne({ email })
     if (!user) {
-        user = await Student.findOne({ email });
+        return;
     }
-    if (user) {
-        return user;
-    }
-    return undefined;
+    return user;
 }

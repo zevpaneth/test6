@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { AuthenticatedRequest} from "../models/user.js";
-import Student from "../models/student.js";
+import User from "../models/user.js";
 import {Schema} from "mongoose";
 import { chooseClass } from "../services/classService.js";
 
@@ -17,7 +17,7 @@ export const registerStudent = asyncHandler(async (req: express.Request, res: ex
         res.status(400);
         throw new Error("It is required to fill in the name, email, password and class name fields");
     }
-    const studentAvailable = await Student.findOne({ email });
+    const studentAvailable = await User.findOne({ email });
     if (studentAvailable) {
         res.status(400);
         throw new Error("Student already registered");
@@ -29,12 +29,13 @@ export const registerStudent = asyncHandler(async (req: express.Request, res: ex
         res.status(404);
         throw new Error("No class found with this name");
     }
-    console.log(chosenClass)
-    const student = await Student.create({
+
+    const student = await User.create({
         name,
         email,
         password: hashedPassword,
         classId: chosenClass._id,
+        role: "student",
     })
 
     if (student) {

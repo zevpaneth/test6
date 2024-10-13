@@ -20,6 +20,7 @@ const validateToken = asyncHandler(async (req: AuthenticatedRequest, res: Respon
                 throw new Error("Unauthorized");
             }
             req.user = decoded.user;
+            console.log(req.user);
             next()
         });
 

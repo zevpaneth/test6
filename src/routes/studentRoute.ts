@@ -5,7 +5,6 @@ const route = express.Router();
 
 route.post("/register", registerStudent)
 
-// route.post("/login", loginTeacher)
 
 
 
