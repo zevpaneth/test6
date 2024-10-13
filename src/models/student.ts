@@ -1,9 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
+import {IUser} from "./user.js";
 
-interface IStudent extends Document {
-    name: string;
-    email: string;
-    password: string;
+interface IStudent extends IUser {
     classId: Schema.Types.ObjectId;
 }
 

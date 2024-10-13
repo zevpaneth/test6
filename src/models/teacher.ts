@@ -1,9 +1,8 @@
 import mongoose, { Schema, Document } from 'mongoose';
+import {IUser} from "./user.js";
 
-interface ITeacher extends Document {
-    name: string;
-    email: string;
-    password: string;
+interface ITeacher extends IUser {
+
 }
 
 const teacherSchema: Schema = new Schema({

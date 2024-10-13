@@ -2,9 +2,10 @@ import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 import express, {NextFunction, Request, Response} from "express";
 import dotenv from "dotenv";
-import { AuthenticatedRequest } from "../models/userModel";
+import {AuthenticatedRequest} from "../models/user.js";
 
 dotenv.config();
+
 
 
 

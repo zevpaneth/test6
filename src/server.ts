@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import {errorHandler} from "./src/middleware/errorHandler.js";
-import connectDb from "./src/DAL/dbConnection.js";
+import {errorHandler} from "./middleware/errorHandler.js";
+import connectDb from "./DAL/dbConnection.js";
 
 dotenv.config();
 await connectDb();

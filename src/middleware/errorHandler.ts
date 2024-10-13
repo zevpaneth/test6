@@ -1,4 +1,4 @@
-import constants from 'constants.js'
+import constants from '../constants.js'
 import { Request, Response, NextFunction, ErrorRequestHandler} from 'express';
 import dotenv from "dotenv";
 dotenv.config();
